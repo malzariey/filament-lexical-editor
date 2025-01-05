@@ -13,7 +13,7 @@
                                                  title="{{ __('messages.redo') }}" shortcut="Ctrl+Y" icon="redo"/>
         @break
     @case(ToolbarItem::FONT_FAMILY)
-        <div class="relative w-52">
+        <div class="relative w-52 h-11 py-1">
             <select x-ref="fontFamily" class="toolbar-item spaced font-family"
                     x-tooltip="'{{ __('messages.font_family') }}'">
                 <option value="Arial" style="font-family: Arial,serif">Arial</option>
@@ -85,7 +85,7 @@
         <x-filament-lexical-editor::toolbar-item ref="decrement" class="font-decrement"
                                                  title="{{ __('messages.decrease_font_size') }}" shortcut="Ctrl+Shift+,"
                                                  icon-class="format" icon="minus-icon"/>
-        <input type="number" title="Font size" x-ref="fontSize" class="toolbar-item font-size-input w-15 " min="8"
+        <input type="number" title="Font size" x-ref="fontSize" class="toolbar-item font-size-input w-16 " min="8"
                max="72" value="15">
         <x-filament-lexical-editor::toolbar-item ref="increment" class="font-increment"
                                                  title="{{ __('messages.increase_font_size') }}" shortcut="Ctrl+Shift+."
