@@ -1,26 +1,20 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Malzariey\FilamentLexicalEditor;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
-use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+
+class FilamentLexicalEditorServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-lexical-editor';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'filament-lexical-editor';
 
     public function configurePackage(Package $package): void
     {
@@ -29,15 +23,6 @@ class SkeletonServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package->name(static::$name)
-            ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
-            });
 
         $configFileName = $package->shortName();
 
@@ -73,25 +58,11 @@ class SkeletonServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
-
-        // Handle Stubs
-        if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
-            }
-        }
-
-        // Testing
-        Testable::mixin(new TestsSkeleton);
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'malzariey/filament-lexical-editor';
     }
 
     /**
@@ -100,9 +71,8 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+                AlpineComponent::make('filament-lexical-editor', __DIR__ . '/../resources/dist/components/filament-lexical-editor.js'),
+                Css::make('filament-lexical-editor-styles', __DIR__ . '/../resources/dist/filament-lexical-editor.css'),
         ];
     }
 
@@ -112,7 +82,6 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
         ];
     }
 
@@ -146,7 +115,6 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
         ];
     }
 }
