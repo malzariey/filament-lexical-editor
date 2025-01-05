@@ -1,6 +1,6 @@
 <div style="height: 0">
-    <x-link-editor/>
-    <x-image-dialog/>
-    <x-image-editor/>
+    <x-filament-lexical-editor::link-editor/>
+    <x-filament-lexical-editor::image-dialog/>
+    <x-filament-lexical-editor::image-editor/>
 </div>
 

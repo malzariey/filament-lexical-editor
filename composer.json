@@ -53,10 +53,8 @@
         "laravel": {
             "providers": [
                 "Malzariey\\FilamentLexicalEditor\\FilamentLexicalEditorServiceProvider"
-            ],
-            "aliases": {
-                "FilamentLexicalEditor": "Malzariey\\FilamentLexicalEditor\\Facades\\FilamentLexicalEditor"
-            }
+            ]
+
         }
     },
     "minimum-stability": "dev",

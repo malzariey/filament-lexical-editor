@@ -23,24 +23,9 @@ class FilamentLexicalEditorServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
+        $package
+            ->name(static::$name)->hasTranslations()->hasViews(static::$viewNamespace);
 
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
-        }
-
-        if (file_exists($package->basePath('/../resources/lang'))) {
-            $package->hasTranslations();
-        }
-
-        if (file_exists($package->basePath('/../resources/views'))) {
-            $package->hasViews(static::$viewNamespace);
-        }
     }
 
     public function packageRegistered(): void {}
@@ -71,7 +56,7 @@ class FilamentLexicalEditorServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-                AlpineComponent::make('filament-lexical-editor', __DIR__ . '/../resources/dist/components/filament-lexical-editor.js'),
+                AlpineComponent::make('lexical-component', __DIR__ . '/../resources/dist/filament-lexical-editor.js'),
                 Css::make('filament-lexical-editor-styles', __DIR__ . '/../resources/dist/filament-lexical-editor.css'),
         ];
     }

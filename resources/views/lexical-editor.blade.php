@@ -18,7 +18,7 @@
 
         <div
             ax-load="visible"
-            ax-load-src="{{ FilamentAsset::getAlpineComponentSrc('lexical-component') }}"
+            ax-load-src="{{ FilamentAsset::getAlpineComponentSrc('lexical-component', 'malzariey/filament-lexical-editor') }}"
             x-data="lexicalComponent({
                     state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$statePath}')") }},
                     enabledToolbars: @js($getEnabledToolbars())
@@ -34,7 +34,7 @@
 
             <div class="toolbar flex-wrap">
                 @foreach($getEnabledToolbars() as $toolbar)
-                    <x-toolbar :toolbar="$toolbar"/>
+                    <x-filament-lexical-editor::toolbar :toolbar="$toolbar"/>
                 @endforeach
             </div>
 
@@ -44,7 +44,7 @@
                          aria-placeholder="Enter some rich text..." data-lexical-editor="true"/>
                 </div>
             </div>
-            <x-dialogs/>
+            <x-filament-lexical-editor::dialogs/>
 
         </div>
 
