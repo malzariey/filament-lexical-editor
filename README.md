@@ -75,11 +75,11 @@ To add a divider between toolbar actions, you can use the ToolbarItem::DIVIDER c
 
 #### Light mode
 
-![FilamentLexicalEditor Light](https://github.com/malzariey/filament-lexical-editor/raw/main/art/light.png)
+![FilamentLexicalEditor Light](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/light.png)
 
 #### Dark mode
 
-![FilamentLexicalEditor Dark](https://github.com/malzariey/filament-lexical-editor/raw/main/art/dark.png)
+![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/dark.png)
 
 
 # Styling
