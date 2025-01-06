@@ -732,6 +732,14 @@ i.page-break,.icon.page-break {
     @apply bg-white dark:bg-black;
 }
 
+.clr-picker{
+    @apply dark:bg-black;
+}
+
+input.clr-color {
+    @apply dark:bg-white/5 dark:text-white;
+}
+
 .dropdown .item {
     margin: 0 8px;
     padding: 8px;
@@ -2567,7 +2575,8 @@ i.send {
     background-color: #f0f2f5;
     padding: 1px .25rem;
     font-family: Menlo,Consolas,Monaco,monospace;
-    font-size: 94%
+    font-size: 94%;
+    @apply dark:bg-[#2c2c2c];
 }
 
 .lexical__textLowercase {
@@ -2621,6 +2630,8 @@ i.send {
 
 .lexical__code {
     background-color: #f0f2f5;
+    @apply dark:bg-[#2c2c2c];
+
     font-family: Menlo,Consolas,Monaco,monospace;
     display: block;
     padding: 8px 8px 8px 52px;
