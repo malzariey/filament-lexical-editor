@@ -40,7 +40,7 @@
 
             <div class="editor-container tree-view p-2 ">
                 <div class="editor-scroller">
-                    <div x-ref="editor" class="editor prose" style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
+                    <div x-ref="editor" class="editor" style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
                          aria-placeholder="Enter some rich text..." data-lexical-editor="true"/>
                 </div>
             </div>
