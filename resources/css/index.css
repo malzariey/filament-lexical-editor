@@ -4914,6 +4914,7 @@ body {
     font-weight: 700;
     font-size: 14px;
     color: #777;
+    @apply dark:bg-white/5 dark:text-white;
     border-radius: 5px;
     border-color: gray;
     height: 30px;
