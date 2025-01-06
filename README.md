@@ -84,7 +84,7 @@ To add a divider between toolbar actions, you can use the ToolbarItem::DIVIDER c
 
 # Styling
 
-If you're [building a custom Filament theme](https://filamentphp.com/docs/2.x/admin/appearance#building-themes), you need one more step to make the calendar theme match your custom theme.
+If you're [building a custom Filament theme](https://filamentphp.com/docs/2.x/admin/appearance#building-themes), you need one more step to make the editor theme match your custom theme.
 
 Add this line to your `resources/css/{panel_name}/theme.css` file.
 
