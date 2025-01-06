@@ -1470,14 +1470,16 @@ button.action-button:disabled {
     display: flex;
     margin-bottom: 1px;
     padding: 4px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border: 1px solid lightgray ;
+    border-top-left-radius: 4px;
+
+
+    border-top-right-radius: 4px;
     vertical-align: middle;
-    overflow: auto;
     position: sticky;
-    top: 0;
+    top: 4rem;
     z-index: 2;
-    overflow-y: hidden
+    @apply bg-white dark:bg-gray-800;
 }
 
 button.toolbar-item {
