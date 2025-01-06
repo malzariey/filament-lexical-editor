@@ -636,11 +636,8 @@ i.page-break,.icon.page-break {
     background-position: center;
     background-repeat: no-repeat;
     width: 35px;
-    vertical-align: -.25em;
-    position: absolute;
-    right: 30px;
-    top: 0;
-    bottom: 0;
+    height: 35px;
+    align-self: center;
     cursor: pointer
 }
 
@@ -650,11 +647,8 @@ i.page-break,.icon.page-break {
     background-position: center;
     background-repeat: no-repeat;
     width: 35px;
-    vertical-align: -.25em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    height: 35px;
+    align-self: center;
     cursor: pointer
 }
 
@@ -664,12 +658,8 @@ i.page-break,.icon.page-break {
     background-position: center;
     background-repeat: no-repeat;
     width: 35px;
-    vertical-align: -.25em;
-    margin-right: 28px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    height: 35px;
+    align-self: center;
     cursor: pointer
 }
 
@@ -679,12 +669,8 @@ i.page-break,.icon.page-break {
     background-position: center;
     background-repeat: no-repeat;
     width: 35px;
-    vertical-align: -.25em;
-    margin-right: 2px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    height: 35px;
+    align-self: center;
     cursor: pointer
 }
 
@@ -743,7 +729,7 @@ i.page-break,.icon.page-break {
     box-shadow: 0 12px 28px #0003,0 2px 4px #0000001a,inset 0 0 0 1px #ffffff80;
     border-radius: 8px;
     min-height: 40px;
-    background-color: #fff
+    @apply bg-white dark:bg-black;
 }
 
 .dropdown .item {
