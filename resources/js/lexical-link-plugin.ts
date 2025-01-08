@@ -1,5 +1,5 @@
 import {
-    $getNearestNodeFromDOMNode,
+    $getNearestNodeFromDOMNode, $getRoot,
     $getSelection,
     $isElementNode,
     $isRangeSelection,
@@ -20,6 +20,8 @@ export function registerLink(editor: LexicalEditor) {
             if (!$isRangeSelection(selection)) {
                 return false;
             }
+            const rootDom = editor.getElementByKey($getRoot().getKey());
+
             const node = getSelectedNode(selection);
             const parent = node.getParent();
             if ($isLinkNode(parent) || $isLinkNode(node)) {
@@ -29,7 +31,7 @@ export function registerLink(editor: LexicalEditor) {
                 });
 
                 if (payload == undefined) {
-                    window.dispatchEvent(new CustomEvent('close-link-editor-dialog'));
+                    rootDom.dispatchEvent(new CustomEvent('close-link-editor-dialog'));
                 }
             } else {
                 $toggleLink("https://", {
@@ -42,11 +44,10 @@ export function registerLink(editor: LexicalEditor) {
                     if ($isRangeSelection(selection)) {
                         const node = getSelectedNode(selection);
                         const elementKey = node.getKey();
-
                         const elementDOM = editor.getElementByKey(elementKey);
 
                         if (elementDOM != null) {
-                            window.dispatchEvent(new CustomEvent('link-created', {
+                            rootDom.dispatchEvent(new CustomEvent('link-created', {
                                 detail: {
                                     url: "https://",
                                     target: elementDOM,
@@ -156,12 +157,18 @@ const onClick = (event: MouseEvent) => {
         return;
     }
     if (target !== null) {
-        window.dispatchEvent(new CustomEvent('link-clicked', {
-            detail: {
-                url: url,
-                target: target,
-            },
-        }));
+        nearestEditor.read(() => {
+            const rootDom =  nearestEditor.getElementByKey($getRoot().getKey());
+
+            rootDom.dispatchEvent(new CustomEvent('link-clicked', {
+                detail: {
+                    url: url,
+                    target: target,
+                },
+            }));
+        });
+
+
     }
 };
 

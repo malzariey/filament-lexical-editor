@@ -9,6 +9,7 @@
                         <x-filament::input
                             type="text"
                             x-model="linkEditorUrl"
+                            x-on:keydown.enter="$event.preventDefault(); updateLink()"
                             style="width: 100%"
                         />
                     </x-filament::input.wrapper>

@@ -5,11 +5,11 @@
 <div x-ref="imageModal" modal-id="{{$id}}">
     <x-filament::modal  id="{{$id}}">
         <x-slot name="heading">
-            @lang('messages.image_uploader.upload_image')
+            @lang('filament-lexical-editor::lexical-editor.image_uploader.upload_image')
         </x-slot>
         {{-- Modal content --}}
 
-        <label for="image-upload">@lang('messages.image_uploader.image')</label>
+        <label for="image-upload">@lang('filament-lexical-editor::lexical-editor.image_uploader.image')</label>
         <x-filament::input.wrapper>
             <x-filament::input
                 type="file"
@@ -18,7 +18,7 @@
             />
         </x-filament::input.wrapper>
 
-        <label for="alt-text">@lang('messages.image_uploader.alt')</label>
+        <label for="alt-text">@lang('filament-lexical-editor::lexical-editor.image_uploader.alt')</label>
 
         <x-filament::input.wrapper>
             <x-filament::input
@@ -34,13 +34,13 @@
                 <x-filament::button
                     @click="$event.preventDefault(); handleImage(); close()"
                 >
-                    @lang('messages.image_uploader.upload')
+                    @lang('filament-lexical-editor::lexical-editor.image_uploader.upload')
                 </x-filament::button>
                 <x-filament::button
                     @click="$event.preventDefault(); close()"
                     color="gray"
                 >
-                    @lang('messages.cancel')
+                    @lang('filament-lexical-editor::lexical-editor.cancel')
                 </x-filament::button>
 
             </div>

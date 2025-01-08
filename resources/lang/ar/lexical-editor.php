@@ -6,7 +6,6 @@ return [
     'undo' => 'تراجع',
     'redo' => 'إعادة',
     'font_family' => 'نوع الخط',
-
     'normal' => 'عادي',
     'heading_1' => 'عنوان 1',
     'heading_2' => 'عنوان 2',

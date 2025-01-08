@@ -26,9 +26,7 @@
 
             x-ignore
             wire:ignore
-            @link-clicked.window="showLinkEditorDialog( $event.detail.target,$event.detail.url, false)"
-            @link-created.window="showLinkEditorDialog( $event.detail.target, $event.detail.url,)"
-            @close-link-editor-dialog.window="closeLinkEditorDialog()"
+
             class="editor-shell w-full"
         >
 
@@ -40,7 +38,11 @@
 
             <div class="editor-container tree-view p-2 ">
                 <div class="editor-scroller">
-                    <div x-ref="editor" class="editor" style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
+                    <div x-ref="editor"
+                         @link-clicked="showLinkEditorDialog( $event.detail.target,$event.detail.url, false)"
+                         @link-created="showLinkEditorDialog( $event.detail.target, $event.detail.url,)"
+                         @close-link-editor-dialog="closeLinkEditorDialog()"
+                         class="editor" style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
                          aria-placeholder="Enter some rich text..." data-lexical-editor="true"/>
                 </div>
             </div>
