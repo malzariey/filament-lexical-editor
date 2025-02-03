@@ -22,7 +22,15 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="filament-lexical-editor-views"
 ```
 
+# Screenshots
 
+### Light mode
+
+![FilamentLexicalEditor Light](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/light.png)
+
+### Dark mode
+
+![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/dark.png)
 
 ## Usage
 Use the `FilamentLexicalEditor` field in your form schema to add the Lexical Editor to your form.
@@ -70,17 +78,6 @@ To add a divider between toolbar actions, you can use the ToolbarItem::DIVIDER c
         ]),
 
 ```
-
-### Screenshots
-
-#### Light mode
-
-![FilamentLexicalEditor Light](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/light.png)
-
-#### Dark mode
-
-![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/dark.png)
-
 
 # Styling
 
