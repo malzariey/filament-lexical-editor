@@ -86,6 +86,7 @@ import {
     registerInsertImageCommand
 } from "./lexical-image-plugin";
 import {$getNodeByKey} from "lexical";
+import { ExtendedTextNode } from './extended-text-note'
 const COMMAND_PRIORITY_LOW = 1;
 export default function lexicalComponent({
                                              basicColors = [
@@ -148,7 +149,7 @@ export default function lexicalComponent({
     return {
         state: state,
         basicColors,
-        toolbarState: INITIAL_TOOLBAR_STATE,
+        toolbarState: structuredClone(INITIAL_TOOLBAR_STATE),
         showLinkEditor: false,
         linkEditMode: false,
         linkEditorAnchor : null as HTMLElement | null,
@@ -160,6 +161,12 @@ export default function lexicalComponent({
             const initialConfig = {
                 namespace: 'lexical-editor',
                 nodes: [
+                    ExtendedTextNode,
+                    {
+                        replace: TextNode,
+                        with: (node: TextNode) => new ExtendedTextNode(node.__text),
+                        withKlass: ExtendedTextNode,
+                    },
                     AutoLinkNode,
                     ListItemNode,
                     CodeNode,
@@ -548,18 +555,6 @@ export default function lexicalComponent({
         updateToolbar() {
             const selection = $getSelection();
             if ($isRangeSelection(selection)) {
-                // if (activeEditor !== editor && $isEditorIsNestedEditor(activeEditor)) {
-                //     const rootElement = activeEditor.getRootElement();
-                //     this.updateToolbarState(
-                //         'isImageCaption',
-                //         !!rootElement?.parentElement?.classList.contains(
-                //             'image-caption-container',
-                //         ),
-                //     );
-                // } else {
-                //     this.updateToolbarState('isImageCaption', false);
-                // }
-
                 const anchorNode = selection.anchor.getNode();
                 let element =
                     anchorNode.getKey() === 'root'
@@ -584,15 +579,7 @@ export default function lexicalComponent({
                 const isLink = $isLinkNode(parent) || $isLinkNode(node);
                 this.updateToolbarState('isLink', isLink);
 
-                // const tableNode = $findMatchingParent(node, $isTableNode);
-                // if ($isTableNode(tableNode)) {
-                //     this.updateToolbarState('rootType', 'table');
-                // } else {
-                //     this.updateToolbarState('rootType', 'root');
-                // }
-
                 if (elementDOM !== null) {
-                    // setSelectedElementKey(elementKey);
                     if ($isListNode(element)) {
                         const parentList = $getNearestNodeOfType<ListNode>(
                             anchorNode,
