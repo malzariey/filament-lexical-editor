@@ -14,7 +14,7 @@
         @break
     @case(ToolbarItem::FONT_FAMILY)
         <div class="relative w-52 h-11 py-1">
-            <select x-ref="fontFamily" class="toolbar-item spaced font-family"
+            <select x-ref="fontFamily" class="toolbar-item spaced font-family" id="{{uniqid()}}"
                     x-tooltip="'{{ __('filament-lexical-editor::lexical-editor.font_family') }}'">
                 <option value="Arial" style="font-family: Arial,serif">Arial</option>
                 <option value="Courier New" style="font-family: 'Courier New',serif">Courier New</option>
@@ -85,7 +85,7 @@
         <x-filament-lexical-editor::toolbar-item ref="decrement" class="font-decrement"
                                                  title="{{ __('filament-lexical-editor::lexical-editor.decrease_font_size') }}" shortcut="Ctrl+Shift+,"
                                                  icon-class="format" icon="minus-icon"/>
-        <input type="number" title="Font size" x-ref="fontSize" class="toolbar-item font-size-input w-16 " min="8"
+        <input id="{{uniqid()}}" type="number" title="Font size" x-ref="fontSize" class="toolbar-item font-size-input w-16 " min="8"
                max="72" value="15">
         <x-filament-lexical-editor::toolbar-item ref="increment" class="font-increment"
                                                  title="{{ __('filament-lexical-editor::lexical-editor.increase_font_size') }}" shortcut="Ctrl+Shift+."

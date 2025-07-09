@@ -13,20 +13,16 @@
             'ring-gray-950/10 dark:ring-white/20' => ! $errors->has($statePath),
             'ring-danger-600 dark:ring-danger-600' => $errors->has($statePath),
         ])
-
     >
 
         <div
-            ax-load="visible"
-            ax-load-src="{{ FilamentAsset::getAlpineComponentSrc('lexical-component', 'malzariey/filament-lexical-editor') }}"
+            x-load="visible"
+            x-load-src="{{ FilamentAsset::getAlpineComponentSrc('lexical-component', 'malzariey/filament-lexical-editor') }}"
             x-data="lexicalComponent({
                     state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$statePath}')") }},
                     enabledToolbars: @js($getEnabledToolbars())
             })"
-
-            x-ignore
             wire:ignore
-
             class="editor-shell w-full"
         >
 
@@ -42,8 +38,12 @@
                          @link-clicked="showLinkEditorDialog( $event.detail.target,$event.detail.url, false)"
                          @link-created="showLinkEditorDialog( $event.detail.target, $event.detail.url,)"
                          @close-link-editor-dialog="closeLinkEditorDialog()"
-                         class="editor" style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
-                         aria-placeholder="Enter some rich text..." data-lexical-editor="true"/>
+                         class="editor"
+                         style="max-width: unset" contenteditable="true" role="textbox" spellcheck="true"
+                         aria-placeholder="Enter some rich text..." data-lexical-editor="true"  >
+
+                    </div>
+
                 </div>
             </div>
             <x-filament-lexical-editor::dialogs/>
