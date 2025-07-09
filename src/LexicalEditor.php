@@ -6,7 +6,7 @@ use Closure;
 use Filament\Forms\Components\Field;
 use Malzariey\FilamentLexicalEditor\Enums\ToolbarItem;
 
-class FilamentLexicalEditor extends Field{
+class LexicalEditor extends Field{
     protected string $view = 'filament-lexical-editor::lexical-editor';
 
     public array | Closure $enabledToolbars = [

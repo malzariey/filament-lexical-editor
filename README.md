@@ -32,15 +32,16 @@ php artisan vendor:publish --tag="filament-lexical-editor-views"
 ![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/dark.png)
 
 ## Usage
-Use the `FilamentLexicalEditor` field in your form schema to add the Lexical Editor to your form.
+Use the `LexicalEditor` field in your form schema to add the Lexical Editor to your form.
+
 ```php
-    use Malzariey\FilamentLexicalEditor\FilamentLexicalEditor;
+    use Malzariey\FilamentLexicalEditor\LexicalEditor;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                FilamentLexicalEditor::make('content'),
+                LexicalEditor::make('content'),
             ]);
     }
 ```
@@ -49,8 +50,9 @@ Use the `FilamentLexicalEditor` field in your form schema to add the Lexical Edi
 You can customize the toolbar by using the `enabledToolbars` method. The method accepts an array of ToolbarItem constants. The following is a list of available toolbar items:
 
 ```php
-    
-    FilamentLexicalEditor::make('content')
+    use Malzariey\FilamentLexicalEditor\LexicalEditor;
+
+    LexicalEditor::make('content')
         ->enabledToolbars([
             ToolbarItem::UNDO, ToolbarItem::REDO,ToolbarItem::FONT_FAMILY, ToolbarItem::NORMAL, ToolbarItem::H1, ToolbarItem::H2, ToolbarItem::H3,
             ToolbarItem::H4, ToolbarItem::H5, ToolbarItem::H6, ToolbarItem::BULLET, ToolbarItem::NUMBERED, ToolbarItem::QUOTE,
@@ -66,8 +68,9 @@ You can customize the toolbar by using the `enabledToolbars` method. The method 
 ## Adding Dividers between Toolbar Actions
 To add a divider between toolbar actions, you can use the ToolbarItem::DIVIDER constant.
 ```php
-    
-    FilamentLexicalEditor::make('content')
+   use Malzariey\FilamentLexicalEditor\LexicalEditor;
+
+    LexicalEditor::make('content')
         ->enabledToolbars([
             ToolbarItem::UNDO, ToolbarItem::REDO,
             ToolbarItem::DIVIDER,
