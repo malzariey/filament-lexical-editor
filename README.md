@@ -25,11 +25,11 @@ php artisan vendor:publish --tag="filament-lexical-editor-views"
 
 ### Light mode
 
-![FilamentLexicalEditor Light](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/light.png)
+![FilamentLexicalEditor Light](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/x3/raw/main/art/light.png)
 
 ### Dark mode
 
-![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/main/raw/main/art/dark.png)
+![FilamentLexicalEditor Dark](https://raw.githubusercontent.com/malzariey/filament-lexical-editor/refs/heads/x3/raw/main/art/dark.png)
 
 ## Usage
 Use the `FilamentLexicalEditor` field in your form schema to add the Lexical Editor to your form.
