@@ -685,7 +685,7 @@ export default function lexicalComponent({
                 });
             }else if(toolbar === 'fontSize' && this.$refs.fontSize != null) {
                 this.$refs.fontSize.value = value.toString().replace("px","") ?? DEFAULT_FONT_SIZE;
-            }else if(toolbar === 'fontFamily') {
+            }else if(toolbar === 'fontFamily' && this.$refs.fontFamily != null) {
                 this.$refs.fontFamily.value = value;
             }
         },
